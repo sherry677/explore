@@ -1,37 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Yinnan' Doddie</h1>
+<h1>HEY DOGGIE</h1>
+
 
 <table>
-  <div class="container">
+
+
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 col-md-4">
-        <a href="#"><h1>Welsh Corgi</h1></a>
-        <p>Corgi is the smiling doggie</p>
-        <%= image_tag("corgi.jpg", class: "img-responsive") %>
-        <strong>$ 1142</strong>
-      </div><!-- /col -->
-      <div class="col-sm-3 col-md-4">
-        <a href="#"><h1>Shetland Sheepdog</h1></a>
-        <p>The one that you ever wanted(smart&friendly)</p>
-        <%= image_tag("collie.jpg", class: "img-responsive") %>
-        <strong>$ 1384</strong>
-      </div><!-- /col -->
-      <div class="col-sm-3 col-md-4">
-        <a href="#"><h1>German Shepherd</h1></a>
-        <p>protective and intelligent</p>
-        <%= image_tag("german.jpeg", class: "img-responsive") %>
-        <strong>$ 1299</strong>
-      </div><!-- /col -->
-      <div class="col-sm-3 col-md-4">
-        <a href="#"><h1>French Bull Dog</h1></a>
-        <p>Small but bold, cute but alert</p>
-        <%= image_tag("frenchbull.jpeg", class: "img-responsive") %>
-        <strong>$ 1100</strong>
-      </div><!-- /col -->
-    </div>
+      <% @products.each do |product| %>
+        <div class="col-sm-3 col-md-4">
+          <%= image_tag(product.image_url, class: "img-responsive") %>
+          <a href="#"><h1><%= product.name %></h1></a>
+          <p><%= product.description %></p>
+          <h5><%= product.colour %></h5>
+          <strong><%= product.price %></strong>
+        </div><!-- /col -->
+      <% end %>
+    </div><!-- /row -->
   </div>
 </table>
 
-<br>
 
+<br>
+<%= link_to 'New Product', new_product_path %>
